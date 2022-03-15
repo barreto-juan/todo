@@ -1,117 +1,105 @@
-<?php
+<?php require_once "header.php" ?>
 
-  require_once "create_db.php";
-  require_once "create_tb.php";
-  require_once "connection.php";
 
-?>
 
-<!DOCTYPE html>
-<html lang="ptbr" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
-
-    <link rel="icon" href="">
-
-    <title>TODO</title>
-  </head>
-  <body>
-
-    <div class="container">
-
-      <h1>Pedidos <i class="fa-solid fa-clipboard-list"></i></h1>
+      <h1>Central de Pedidos <i class="fa-solid fa-clipboard-list"></i></h1>
 
       <br>
 
-      <form class="" action="proccess.php" method="post">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Pedido</th>
+            <th>Cliente</th>
+            <th>Hora do Pedido</th>
+            <th>Hora de Entrega</th>
+            <th>Endereço</th>
+            <th>Valor</th>
+            <th>Recebimento</th>
+            <th>Situação</th>
+            <th>Editar</th>
+          </tr>
+        </thead>
 
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Pedido</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" name="demand" rows="3" placeholder="Pedido" required></textarea>
-        </div>
+        <tbody>
+          <?php
 
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="exampleFormControlInput1">Nome</label>
-            <input class="form-control" id="exampleFormControlInput1" type="text" name="name" value="" placeholder="Nome" required>
-          </div>
+            require_once "process.php";
 
-          <div class="form-group col-md-6">
-            <label for="exampleFormControlDate1">Prazo</label>
-            <input class="form-control" id="exampleFormControlDate1" type="datetime-local" name="time" value="" required>
-          </div>
+            $sql = returnDemand();
 
-        </div>
+            if (mysqli_num_rows($sql) == 0) {
+              // code...
+            } else {
+              while ($valores = mysqli_fetch_assoc($sql)) {
 
-        <div class="form-group">
-          <label for="exampleFormControlInput3">Endereço</label>
-          <input class="form-control" id="exampleFormControlInput3" type="text" name="address" value="" placeholder="Endereço" required>
-        </div>
+                echo "
+                  <tr>
+                    <th>
+                      #0" . $valores['id'] . "
+                    </th>
 
-        <div class="form-row">
+                    <td>
+                      " . $valores['demand'] . "
+                    </td>
 
-          <div class="form-group col-md-4">
-            <label for="exampleFormControlInput2">Valor</label>
-            <input class="form-control" id="exampleFormControlInput2" type="text" name="price" value="24.99" required>
-          </div>
+                    <td>
+                      " . $valores['client'] . "
+                    </td>
 
-          <div class="form-group col-md-4">
-            <label for="exampleFormControlSelect1">Modo de Recebimento</label>
-            <select class="custom-select" id="exampleFormControlSelect1" name="receipt" required>
-              <option value="Entrega">Entrega</option>
-              <option value="Retirada">Retirada</option>
-            </select>
-          </div>
+                    <td>
+                      " . (new DateTime($valores['currenttime']))->format('d/m/Y H:i') . "
+                    </td>
 
-          <div class="form-group col-md-4">
-            <label for="exampleFormControlSelect2">Situação</label>
-            <select class="custom-select" id="exampleFormControlSelect2" name="state" required>
-              <option value="Preparação">Preparação</option>
-              <option value="Entregue/Retirado">Entregue/Retirado</option>
-            </select>
-          </div>
+                    <td>
+                      " . (new DateTime($valores['time']))->format('d/m/Y H:i') . "
+                    </td>
 
-        </div>
+                    <td>
+                      " . $valores['address'] . "
+                    </td>
 
-        <button class="btn btn-success" type="submit" name="button">Salvar</button>
+                    <td>
+                      R$ " . number_format($valores['price'], 2, ",", ".") . "
+                    </td>
 
-      </form>
+                    <td>
+                      " . $valores['receipt'] . "
+                    </td>
 
-    </div>
+                    <td>
+                      " . $valores['status'] . "
+                    </td>
 
-  </body>
-</html>
+                    <td>
+                      <form action=\"edit.php\" method=\"get\">
+                        <button class=\"btn btn-primary\" type=\"submit\" name=\"cod\" value=" . $valores['id'] . "><i class=\"fa-solid fa-edit\" title=\"Editar\"></i></button>
+                      </form>
 
-<?php
+                      <form action=\"delete.php\" method=\"get\">
+                        <button class=\"btn btn-danger\" type=\"submit\" name=\"cod\" value=" . $valores['id'] . "><i class=\"fa-solid fa-trash-can\" title=\"Excluir\"></i></button>
+                      </form>
 
-if (isset($_POST['button'])) {
 
-  require_once "process.php";
+                    </td>
+                  </tr>
 
-  $nome = $_POST['name'];
-  $desc = $_POST['demand'];
-  $prazo = $_POST['time'];
-  $end = $_POST['address'];
-  $valor = $_POST['price'];
-  $receb = $_POST['receipt'];
-  $situacao = $_POST['state'];
+                ";
+              }
+            }
 
-  createDemand($nome, $desc, $prazo, $end, $valor, $receb, $situacao);
 
-  if($sql && mysqli_affected_rows($con) == 0){
-    echo "<script> alert(\"falha!!!\") </script>";
-    header("refresh");
-    exit;
-  }elseif($sql && mysqli_affected_rows($con) > 0){
-    echo "<script> alert(\"sucesso!!!\") </script>";
-    header("refresh");
-    exit;
-  }
 
-}
+          ?>
 
-?>
+
+
+        </tbody>
+      </table>
+
+      <a class="" href="create.php">
+        <button class="btn btn-primary" type="button" name="button">Novo Pedido</button>
+      </a>
+
+<?php require_once "footer.php" ?>
