@@ -2,21 +2,20 @@
 
   $cod = $_GET['cod'];
 
-  #echo $cod;
-
   require_once "process.php";
 
   $sql = searchDemand($cod);
 
   if (mysqli_num_rows($sql) == 0){
 
-  }else{
+  } else {
     while($valores = mysqli_fetch_assoc($sql)){
-      ?>
+
+?>
 
       <div class="container">
 
-        <h1>Editar Pedido <i class="fa-solid fa-clipboard-list"></i></h1>
+        <h1>Editar Pedido <i class="fa-solid fa-square-pen"></i></h1>
 
         <br>
 
@@ -85,7 +84,6 @@
   }
 
 
-
 require_once "footer.php";
 
   if (isset($_POST['button'])) {
@@ -101,17 +99,14 @@ require_once "footer.php";
     updateDemand($cod, $nome, $desc, $prazo, $end, $valor, $receb, $situacao);
 
     if ($sql && mysqli_affected_rows($con) == 0) {
-      echo "Falha ao atualizar!!!";
-      sleep(3);
+      echo "<script> alert(\"Falha ao atualizar!!!\") </script>";
       header("refresh");
       exit;
     } elseif ($sql && mysqli_affected_rows($con) > 0) {
-      echo "Sucesso ao atualizar!!!";
-      sleep(3);
-      header("location:index.php", true, 303);
+      echo "<script> alert(\"Sucesso ao atualizar!!!\") </script>";
+      header("refresh");
       exit;
     }
-
 
   }
 

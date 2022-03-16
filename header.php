@@ -15,34 +15,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
 
-    <link rel="icon" href="assets/img/notas.png">
+    <link rel="shotcut icon" href="assets/img/notas.png">
 
     <title>Pedidos - ToDo</title>
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        <img class="d-inline-block align-top" src="assets/img/notas.png" width="40" alt="Logo Pedidos ToDo">
-        
-      </a>
-
-      <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Novo pedido</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sobre</a>
-          </li>
-
-        </ul>
+      <div class="sidebar bg-light border-left shadow px-4 py-3" id="side">
+        <div class="navbar-brand">
+          <img src="assets/img/notas.png" width="70" alt="">
+          <span class="b-title">
+            Pedidos - ToDo
+          </span>
+        </div>
+        <a class="nav-link mt-2" href="index.php"> <i class="fa-solid fa-house"></i> Dashboard</a>
+        <a class="nav-link" href="create.php"> <i class="fa-solid fa-circle-plus"></i> Novo pedido</a>
+        <a class="nav-link" href="discovery.php"> <i class="fa-solid fa-user-group"></i> Sobre</a>
       </div>
 
-
-    </nav>
+      <label class="lb-close bg-light rounded shadow p-2" for="sidebarToggle"><i class="fa-solid fa-close"></i></label>
+      <input type="checkbox" class="butn" id="sidebarToggle"></input>
 
     <div class="container my-3">

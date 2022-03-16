@@ -1,21 +1,23 @@
-# to do  
+# ToDo
 
-### Demands maintain
-<code>Developed Lang:</code>  
+### Order management
 
-> PHP  
+>Developed lang
 
-<code>Running on:</code>
+<code>PHP</code>  
 
-> Localhost
+> Running on:  
 
+<code>127.0.0.1(localhost)</code>
 
-<code>Author:</code>
+> Author
 
-> barreto-juan
+<code>barreto-juan/code>
 
-<code>Installation guide:</code>
+> Installation Guide:
 
-- First item...
-- Second item...
-- Third item...
+<code>
+- First item  
+- Second item  
+- Third item  
+</code>
