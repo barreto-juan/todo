@@ -2,7 +2,7 @@
 
     <div class="container">
 
-      <h1>Pedidos <i class="fa-solid fa-clipboard-list"></i></h1>
+      <h1>Novo Pedido <i class="fa-solid fa-square-plus"></i></h1>
 
       <br>
 
@@ -83,14 +83,12 @@ if (isset($_POST['button'])) {
   createDemand($nome, $desc, $prazo, $end, $valor, $receb, $situacao);
 
   if($sql && mysqli_affected_rows($con) == 0){
-    echo "<script> alert(\"falha!!!\") </script>";
-    sleep(3);
+    echo "<script> alert(\"Falha!!!\") </script>";
     header("refresh");
     exit;
   }elseif($sql && mysqli_affected_rows($con) > 0){
-    echo "<script> alert(\"sucesso!!!\") </script>";
-    sleep(3);
-    header("location:index.php");
+    echo "<script> alert(\"Sucesso!!!\") </script>";
+    header("refresh");
     exit;
   }
 

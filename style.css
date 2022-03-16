@@ -1,0 +1,40 @@
+/*css sidebar*/
+.sidebar{
+  margin-left: -100%;
+  top: 0;
+  height: 0;
+
+  position: unset;
+}
+
+.sidebar .nav-link{
+  display: block;
+  color: #000;
+  border-bottom: 1px solid #dee2e6;
+  padding: 16px;
+
+}
+
+.sidebar .nav-link:hover{
+  background-color: rgba(0,0,0,.075);
+}
+
+.lb-close{
+  width: min-content;
+  position: relative;
+  z-index: 1000;
+}
+
+#sidebarToggle{
+  display: none;
+}
+
+#sidebarToggle:checked ~ .sidebar{
+  margin-left: 0;
+  top: 0;
+  height: 100%;
+
+  position: fixed;
+  overflow: auto;
+  z-index: 999;
+}
