@@ -12,12 +12,10 @@
 
 > Author
 
-<code>barreto-juan/code>
+<code>barreto-juan</code>  
 
 > Installation Guide:
 
-<code>
 - First item  
 - Second item  
 - Third item  
-</code>
