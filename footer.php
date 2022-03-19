@@ -1,13 +1,21 @@
   </div>
 
-  <script type="text/javascript">
+  <div class="footer bg-light text-muted p-4">
+    Copyright &copy; <?php echo date("Y"); ?> ToDo
+  </div>
 
-    const name = document.querySelector(".sidebar");
+  <script>
 
-    function hideSidebar(){
-      name.style.display = "none";
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
     }
 
+    /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
 
   </script>
 

@@ -9,7 +9,9 @@
 <!DOCTYPE html>
 <html lang="ptbr" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -21,19 +23,20 @@
   </head>
   <body>
 
-      <div class="sidebar bg-light border-left shadow px-4 py-3" id="side">
-        <div class="navbar-brand">
-          <img src="assets/img/notas.png" width="70" alt="">
-          <span class="b-title">
-            Pedidos - ToDo
-          </span>
-        </div>
-        <a class="nav-link mt-2" href="index.php"> <i class="fa-solid fa-house"></i> Dashboard</a>
-        <a class="nav-link" href="create.php"> <i class="fa-solid fa-circle-plus"></i> Novo pedido</a>
-        <a class="nav-link" href="discovery.php"> <i class="fa-solid fa-user-group"></i> Sobre</a>
-      </div>
+    <div id="mySidenav" class="sidenav bg-dark">
+      <a href="javascript:void(0)" class="closebtn text-muted " onclick="closeNav()"><i class="fa-solid fa-close"></i></a>
 
-      <label class="lb-close bg-light rounded shadow p-2" for="sidebarToggle"><i class="fa-solid fa-close"></i></label>
-      <input type="checkbox" class="butn" id="sidebarToggle"></input>
+      <a href="#" class="navbar-brand text-muted ">
+        <img src="assets/img/notas.png" width="70" alt="">
+        ToDo
+      </a>
+
+      <a class="text-muted " href="index.php"><i class="fa-solid fa-home"></i> Home</a>
+      <a class="text-muted " href="discovery.php"><i class="fa-solid fa-user-group"></i> Quem Somos</a>
+      <a class="text-muted " href="contact.php"><i class="fa-solid fa-headset"></i> Fale conosco</a>
+      <a class="text-muted " href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+
+    <span class="m-3 p-3 rounded bg-dark text-light shadow" onclick="openNav()" style="font-size: 25px; cursor: pointer;"><i class="fa-solid fa-bars"></i></span>
 
     <div class="container my-3">
