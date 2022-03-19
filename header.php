@@ -13,8 +13,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
 
     <link rel="shotcut icon" href="assets/img/notas.png">
@@ -37,6 +37,6 @@
       <a class="text-muted " href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
 
-    <span class="m-3 p-3 rounded bg-dark text-light shadow" onclick="openNav()" style="font-size: 25px; cursor: pointer;"><i class="fa-solid fa-bars"></i></span>
+    <span class="m-3 p-3 rounded bg-dark text-light shadow" onclick="openNav()" style="font-size: 25px; cursor: pointer;"><i class="fa-solid fa-bars-staggered"></i></span>
 
     <div class="container my-3">
