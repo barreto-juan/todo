@@ -1,40 +1,49 @@
-/*css sidebar*/
-.sidebar{
-  margin-left: -100%;
-  top: 0;
-  height: 0;
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+  }
 
-  position: unset;
-}
+  .sidenav a:hover {
+    color: #f8f9fa!important;
+    text-decoration: none;
+  }
 
-.sidebar .nav-link{
-  display: block;
-  color: #000;
-  border-bottom: 1px solid #dee2e6;
-  padding: 16px;
-
-}
-
-.sidebar .nav-link:hover{
-  background-color: rgba(0,0,0,.075);
-}
-
-.lb-close{
-  width: min-content;
-  position: relative;
-  z-index: 1000;
-}
-
-#sidebarToggle{
-  display: none;
-}
-
-#sidebarToggle:checked ~ .sidebar{
-  margin-left: 0;
-  top: 0;
-  height: 100%;
-
-  position: fixed;
-  overflow: auto;
-  z-index: 999;
-}
+  .sidenav a:not(.navbar-brand, .closebtn) {
+    font-size: 18px;
+    }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
