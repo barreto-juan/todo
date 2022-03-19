@@ -63,12 +63,12 @@
             </select>
           </div>
 
-          
+
           <div class="form-group col-md-4">
             <label class="formRadioLabel">Forma de Pagamento</label>
 
             <div class="methods border rounded bg-light p-3">
-              
+
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="payment" id="inlineRadio1" value="Dinheiro">
                 <label class="form-check-label" for="inlineRadio1"><i class="fa-solid fa-money-bill-wave"></i> Dinheiro</label>
@@ -78,17 +78,17 @@
                 <input class="form-check-input" type="radio" name="payment" id="inlineRadio2" value="Cartão">
                 <label class="form-check-label" for="inlineRadio2"><i class="fa-solid fa-credit-card"></i> Cartão</label>
               </div>
-              
+
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="payment" id="inlineRadio3" value="Pix">
                 <label class="form-check-label" for="inlineRadio3"><i class="fa-brands fa-pix"></i> Pix</label>
               </div>
 
             </div>
-          
+
           </div>
-          
-          
+
+
 
         </div>
 
