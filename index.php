@@ -26,50 +26,50 @@
 
             require_once "process.php";
 
-            $sql = returnOrder();
+            $setSQL = returnOrder();
 
-            if (mysqli_num_rows($sql) == 0) {
+            if (mysqli_num_rows($setSQL) == 0) {
               // code...
             } else {
-              while ($valores = mysqli_fetch_assoc($sql)) {
+              while ($columnsValue = mysqli_fetch_assoc($setSQL)) {
 
                 echo "
                   <tr>
                     <th>
-                      #0" . $valores['id'] . "
+                      #0" . $columnsValue['id'] . "
                     </th>
 
                     <td>
-                      " . $valores['client'] . "
+                      " . $columnsValue['client'] . "
                     </td>
 
                     <td>
-                      " . $valores['address'] . "
+                      " . $columnsValue['address'] . "
                     </td>
 
                     <td>
-                      " . $valores['phone'] . "
+                      " . $columnsValue['phone'] . "
                     </td>
 
                     <td>
-                      " . $valores['status'] . "
+                      " . $columnsValue['status'] . "
                     </td>
 
                     <td class=\"d-flex\">
                       <form action=\"details.php\" method=\"get\">
-                        <button class=\"btn btn-warning\" type=\"submit\" name=\"cod\" value=" . $valores['id'] . " title=\"Detalhes\"><i class=\"fa-solid fa-circle-info\"></i></button>
+                        <button class=\"btn btn-warning\" type=\"submit\" name=\"idOrder\" value=" . $columnsValue['id'] . " title=\"Detalhes\"><i class=\"fa-solid fa-circle-info\"></i></button>
                       </form>
 
                       <span class=\"mx-1\"></span>
 
                       <form action=\"edit.php\" method=\"get\">
-                        <button class=\"btn btn-success\" type=\"submit\" name=\"cod\" value=" . $valores['id'] . " title=\"Editar\"><i class=\"fa-solid fa-edit\"></i></button>
+                        <button class=\"btn btn-success\" type=\"submit\" name=\"idOrder\" value=" . $columnsValue['id'] . " title=\"Editar\"><i class=\"fa-solid fa-edit\"></i></button>
                       </form>
                       
                       <span class=\"mx-1\"></span>
 
                       <form action=\"delete.php\" method=\"get\">
-                        <button class=\"btn btn-danger\" type=\"submit\" name=\"cod\" value=" . $valores['id'] . " title=\"Excluir\"><i class=\"fa-solid fa-trash-can\"></i></button>
+                        <button class=\"btn btn-danger\" type=\"submit\" name=\"idOrder\" value=" . $columnsValue['id'] . " title=\"Excluir\"><i class=\"fa-solid fa-trash-can\"></i></button>
                       </form>
 
                     </td>

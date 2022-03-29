@@ -1,18 +1,20 @@
 <?php
 
-  $host = "localhost";
-  $user = "root";
-  $pass = "";
-  $db = "todo";
+  $setHost = "localhost";
+  $setUser = "root";
+  $setPass = "";
+  $setDB = "todo";
 
-  $con = mysqli_connect($host, $user, $pass);
+  $getConnection = mysqli_connect($setHost, $setUser, $setPass);
 
-  if (!mysqli_select_db($con, $db))
-    echo "erro : <pre>" . $con->errno . " -> " . $con->error . "</pre> <br>";
+  if (!mysqli_select_db($getConnection, $setDB))
+    echo "erro : <pre>" . $getConnection->errno . " -> " . $getConnection->error . "</pre> <br>";
 
-  $sql = "CREATE DATABASE IF NOT EXISTS todo";
-  if ($con->query($sql) === FALSE)
-    echo "<script> alert(\"erro " . $con->error . "\") </script>";
+    
+  $setSQL = "CREATE DATABASE IF NOT EXISTS todo";
+
+  if ($getConnection->query($setSQL) === FALSE)
+    echo "<script> alert(\"erro : " . $getConnection->error . "\") </script>";
 
 
-  $con->close();
+  $getConnection->close();

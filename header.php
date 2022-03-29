@@ -1,5 +1,13 @@
 <?php
 
+  session_start();
+  if (((!isset($_SESSION['user'])) == TRUE) AND ((!isset($_SESSION['password'])) == TRUE)) {
+    header('location:login.php');
+  }
+
+  $userLogged = $_SESSION['user'];
+
+
   require_once "create_db.php";
   require_once "create_tb.php";
   require_once "connection.php";
@@ -34,7 +42,7 @@
       <a class="text-muted " href="index.php"><i class="fa-solid fa-home"></i> Home</a>
       <a class="text-muted " href="discovery.php"><i class="fa-solid fa-user-group"></i> Quem Somos</a>
       <a class="text-muted " href="contact.php"><i class="fa-solid fa-headset"></i> Fale conosco</a>
-      <a class="text-muted " href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      <a class="text-muted " href="logout.php"><button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout, <?php echo $userLogged; ?></button></a>
     </div>
 
     <span class="m-3 p-3 rounded bg-dark text-light shadow" onclick="openNav()" style="font-size: 25px; cursor: pointer;"><i class="fa-solid fa-bars-staggered"></i></span>

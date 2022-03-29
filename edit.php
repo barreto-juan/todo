@@ -1,15 +1,15 @@
-<?php require_once "header.php";
+<?php 
+    require_once 'header.php';
+    require_once 'process.php';
 
-    require_once "process.php";
+    $getIdOrder = $_GET['idOrder'];
 
-    $cod = $_GET['cod'];
+    $setSQL = searchOrder($getIdOrder);
 
-    $sql = searchOrder($cod);
-
-    if (mysqli_num_rows($sql) == 0){
-
+    if (mysqli_num_rows($setSQL) == 0){
+      // code...
     } else {
-      while($valores = mysqli_fetch_assoc($sql)){
+      while($columnsValue = mysqli_fetch_assoc($setSQL)){
 
   ?>
 
@@ -23,30 +23,30 @@
 
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Pedido</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" name="demand" rows="3" placeholder="Pedido" required><?php echo $valores['order'] ?></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="order" rows="3" placeholder="Pedido" required><?php echo $columnsValue['order'] ?></textarea>
             </div>
 
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="exampleFormControlInput1">Cliente</label>
-                <input class="form-control" id="exampleFormControlInput1" type="text" name="name" placeholder="Cliente" required value="<?php echo $valores['client'] ?>">
+                <input class="form-control" id="exampleFormControlInput1" type="text" name="name" placeholder="Cliente" required value="<?php echo $columnsValue['client'] ?>">
               </div>
 
               <div class="form-group col-md-6">
                 <label for="exampleFormControlDate1">Prazo</label>
-                <input class="form-control" id="exampleFormControlDate1" type="datetime-local" name="time" required value="<?php echo (new DateTime($valores['time']))->format('Y-m-d\TH:i') ?>">
+                <input class="form-control" id="exampleFormControlDate1" type="datetime-local" name="time" required value="<?php echo (new DateTime($columnsValue['time']))->format('Y-m-d\TH:i') ?>">
               </div>
 
             </div>
 
             <div class="form-group">
               <label for="exampleFormControlInput3">Endereço</label>
-              <input class="form-control" id="exampleFormControlInput3" type="text" name="address" placeholder="Endereço" value="<?php echo $valores['address'] ?>" required>
+              <input class="form-control" id="exampleFormControlInput3" type="text" name="address" placeholder="Endereço" value="<?php echo $columnsValue['address'] ?>" required>
             </div>
 
             <div class="form-group">
               <label for="exampleFormControlInput4">Telefone</label>
-              <input class="form-control" id="exampleFormControlInput4" type="text" name="phone" placeholder="(35) 9 876-4321" value="<?php echo $valores['phone'] ?>" required>
+              <input class="form-control" id="exampleFormControlInput4" type="text" name="phone" placeholder="(35) 9 876-4321" value="<?php echo $columnsValue['phone'] ?>" required>
             </div>
 
             <div class="form-row">
@@ -56,7 +56,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text">R$</div>
                   </div>
-                  <input class="form-control" id="exampleFormControlInput2" type="text" name="price" value="<?php echo $valores['price'] ?>" required>
+                  <input class="form-control" id="exampleFormControlInput2" type="text" name="price" value="<?php echo $columnsValue['price'] ?>" required>
                 </div>
               </div>
 
@@ -117,23 +117,23 @@
 
     if (isset($_POST['button'])) {
 
-      $nome = $_POST['name'];
-      $desc = $_POST['demand'];
-      $prazo = $_POST['time'];
-      $end = $_POST['address'];
-      $tel = $_POST['phone'];
-      $valor = $_POST['price'];
-      $receb = $_POST['receipt'];
-      $situacao = $_POST['state'];
-      $pag = $_POST['payment'];
+      $getName = $_POST['name'];
+      $getOrder = $_POST['order'];
+      $getTime = $_POST['time'];
+      $getAddress = $_POST['address'];
+      $getPhone = $_POST['phone'];
+      $getPrice = $_POST['price'];
+      $getReceipt = $_POST['receipt'];
+      $getStatus = $_POST['state'];
+      $getPayment = $_POST['payment'];
 
-      updateOrder($cod, $nome, $desc, $prazo, $end, $tel, $valor, $receb, $situacao, $pag);
+      updateOrder($getIdOrder, $getName, $getOrder, $getTime, $getAddress, $getPhone, $getPrice, $getReceipt, $getStatus, $getPayment);
 
-      if ($sql && mysqli_affected_rows($con) == 0) {
+      if ($setSQL && mysqli_affected_rows($getConnection) == 0) {
         echo "<script> alert(\"Falha ao atualizar pedido!!!\") </script>";
         header("refresh");
         exit;
-      } elseif ($sql && mysqli_affected_rows($con) > 0) {
+      } elseif ($setSQL && mysqli_affected_rows($getConnection) > 0) {
         echo "<script> alert(\"Sucesso ao atualizar pedido!!!\") </script>";
         header("refresh");
         exit;

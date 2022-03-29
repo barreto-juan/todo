@@ -1,48 +1,55 @@
 <?php
+  
   require_once 'connection.php';
 
-  function createOrder($nome, $desc, $prazo, $end, $tel, $valor, $receb, $situacao, $pag){
-    global $con;
-    $query = "INSERT INTO orders(`order`, `client`, `time`, `address`, `phone`, `price`, `receipt`, `status`, `payment`) VALUES(\"$desc\", \"$nome\", \"$prazo\", \"$end\", \"$tel\", \"$valor\", \"$receb\", \"$situacao\", \"$pag\");";
-    $sql = $con->query($query) or die($con->error);
 
-    return $sql;
+
+  function createOrder($getName, $getOrder, $getTime, $getAddress, $getPhone, $getPrice, $getReceipt, $getStatus, $getPayment){
+    global $getConnection;
+    $setQuery = "INSERT INTO orders(`order`, `client`, `time`, `address`, `phone`, `price`, `receipt`, `status`, `payment`) VALUES(\"$getOrder\", \"$getName\", \"$getTime\", \"$getAddress\", \"$getPhone\", \"$getPrice\", \"$getReceipt\", \"$getStatus\", \"$getPayment\");";
+
+    $setSQL = $getConnection->query($setQuery) or die($getConnection->error);
+
+    return $setSQL;
 
   }
+
+
 
 
   function returnOrder(){
-    global $con;
-    $query = "SELECT * FROM `orders` WHERE 1";
-    $sql = $con->query($query) or die($con->error);
+    global $getConnection;
+    $setQuery = "SELECT * FROM `orders` WHERE 1";
+    $setSQL = $getConnection->query($setQuery) or die($getConnection->error);
 
-    return $sql;
+    return $setSQL;
 
   }
 
-  function searchOrder($id){
-    global $con;
-    $query = "SELECT * FROM `orders` WHERE id=$id";
-    $sql = $con->query($query) or die($con->error);
+  function searchOrder($getIdOrder){
+    global $getConnection;
+    $setQuery = "SELECT * FROM `orders` WHERE id=$getIdOrder";
+    $setSQL = $getConnection->query($setQuery) or die($getConnection->error);
 
-    return $sql;
+    return $setSQL;
     
   }
 
-  function updateOrder($id, $nome, $desc, $prazo, $end, $tel, $valor, $receb, $situacao, $pag){
-    global $con;
-    $query = "UPDATE `orders` SET `order`=\"$desc\",`client`=\"$nome\", `time`=\"$prazo\",`address`=\"$end\",`phone`=\"$tel\",`price`=\"$valor\",`receipt`=\"$receb\",`status`=\"$situacao\",`payment`=\"$pag\" WHERE `id`=$id";
-    $sql = $con->query($query) or die($con->error);
+  function updateOrder($getIdOrder, $getName, $getOrder, $getTime, $getAddress, $getPhone, $getPrice, $receb, $getStatus, $getPayment){
+    global $getConnection;
+    $setQuery = "UPDATE `orders` SET `order`=\"$getOrder\",`client`=\"$getName\", `time`=\"$getTime\",`address`=\"$getAddress\",`phone`=\"$getPhone\",`price`=\"$getPrice\",`receipt`=\"$receb\",`status`=\"$getStatus\",`payment`=\"$getPayment\" WHERE `id`=$getIdOrder";
+    $setSQL = $getConnection->query($setQuery) or die($getConnection->error);
 
-    return $sql;
+    return $setSQL;
 
   }
 
 
-  function deleteOrder($id){
-    global $con;
-    $query = "DELETE FROM `orders` WHERE `id`=$id";
-    $sql = $con->query($query) or die($con->error);
+  function deleteOrder($getIdOrder){
+    global $getConnection;
+    $setQuery = "DELETE FROM `orders` WHERE `id`=$getIdOrder";
+    $setSQL = $getConnection->query($setQuery) or die($getConnection->error);
 
-    return $sql;
+    return $setSQL;
+
   }

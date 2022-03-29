@@ -1,11 +1,11 @@
 <?php
 
-  $host = "localhost";
-  $user = "root";
-  $pass = "";
-  $db = "todo";
+  $setHost = "localhost";
+  $setUser = "root";
+  $setPass = "";
+  $setDB = "todo";
 
-  $con = mysqli_connect($host, $user, $pass);
+  $getConnection = mysqli_connect($setHost, $setUser, $setPass);
 
-  if (!mysqli_select_db($con, $db))
-    echo "erro : <pre>" . $con->errno . " -> " . $con->error . "</pre> <br>";
+  if (!mysqli_select_db($getConnection, $setDB))
+    echo "erro : <pre>" . $getConnection->errno . " -> " . $getConnection->error . "</pre> <br>";

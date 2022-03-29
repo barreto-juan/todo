@@ -1,16 +1,17 @@
 <?php
 
-  $host = "localhost";
-  $user = "root";
-  $pass = "";
-  $db = "todo";
+  $setHost = "localhost";
+  $setUser = "root";
+  $setPass = "";
+  $setDB = "todo";
 
-  $con = mysqli_connect($host, $user, $pass);
+  $getConnection = mysqli_connect($setHost, $setUser, $setPass);
 
-  if (!mysqli_select_db($con, $db))
-    echo "erro : <pre>" . $con->errno . " -> " . $con->error . "</pre> <br>";
+  if (!mysqli_select_db($getConnection, $setDB))
+    echo "erro : <pre>" . $getConnection->errno . " -> " . $getConnection->error . "</pre> <br>";
 
-  $sql = "CREATE TABLE IF NOT EXISTS `orders`(
+
+  $setSQL = "CREATE TABLE IF NOT EXISTS `orders`(
     `id` int(11) not null primary key auto_increment,
     `order` text not null,
     `client` varchar(255) not null,
@@ -24,9 +25,15 @@
     `payment` varchar(10) not null
   );";
 
+  $setSQL .= "CREATE TABLE IF NOT EXISTS `login`(
+    `id` int(11) not null primary key auto_increment,
+    `user` varchar(255) not null,
+    `password` varchar(255) not null
+  )";
 
 
-  if ($con->query($sql) === FALSE)
-    echo "<script> alert(\"erro " . $con->error . "\") </script>";
 
-  $con->close();
+  if ($getConnection->multi_query($setSQL) === FALSE)
+    echo "<script> alert(\"erro : " . $getConnection->error . "\") </script>";
+
+  $getConnection->close();

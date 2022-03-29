@@ -1,4 +1,4 @@
-<?php require_once "header.php" ?>
+<?php require_once 'header.php'; ?>
 
     <div class="container">
 
@@ -98,29 +98,31 @@
 
     </div>
 
-<?php require_once "footer.php";
+<?php require_once 'footer.php';
+
+
 
 if (isset($_POST['button'])) {
 
-  require_once "process.php";
+  require_once 'process.php';
 
-  $nome = $_POST['name'];
-  $desc = $_POST['order'];
-  $prazo = $_POST['time'];
-  $end = $_POST['address'];
-  $tel = $_POST['phone'];
-  $valor = $_POST['price'];
-  $receb = $_POST['receipt'];
-  $situacao = $_POST['state'];
-  $pag = $_POST['payment'];
+  $getName = $_POST['name'];
+  $getOrder = $_POST['order'];
+  $getTime = $_POST['time'];
+  $getAddress = $_POST['address'];
+  $getPhone = $_POST['phone'];
+  $getPrice = $_POST['price'];
+  $getReceipt = $_POST['receipt'];
+  $getStatus = $_POST['state'];
+  $getPayment = $_POST['payment'];
 
-  createOrder($nome, $desc, $prazo, $end, $tel, $valor, $receb, $situacao, $pag);
+  createOrder($getName, $getOrder, $getTime, $getAddress, $getPhone, $getPrice, $getReceipt, $getStatus, $getPayment);
 
-  if($sql && mysqli_affected_rows($con) == 0){
+  if($setSQL && mysqli_affected_rows($getConnection) == 0){
     echo "<script> alert(\"Falha ao anotar o pedido!!!\") </script>";
     header("refresh");
     exit;
-  }elseif($sql && mysqli_affected_rows($con) > 0){
+  } elseif($setSQL && mysqli_affected_rows($getConnection) > 0) {
     echo "<script> alert(\"Pedido anotado com sucesso!!!\") </script>";
     header("refresh");
     exit;

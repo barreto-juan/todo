@@ -1,6 +1,6 @@
 <?php require_once "header.php"; ?>
 
-      <h1>Pedido #0<?php echo $_GET['cod']; ?></h1>
+      <h1>Pedido #0<?php echo $_GET['idOrder']; ?></h1>
 
       <br>
 
@@ -11,17 +11,17 @@
 
             require_once "process.php";
 
-            $sql = searchOrder($_GET['cod']);
+            $setSQL = searchOrder($_GET['idOrder']);
 
-            if (mysqli_num_rows($sql) == 0) {
+            if (mysqli_num_rows($setSQL) == 0) {
               // code...
             } else {
-              while ($valores = mysqli_fetch_assoc($sql)) {
+              while ($columnsValue = mysqli_fetch_assoc($setSQL)) {
                 echo "
 
-                    <p>Nome: <b>" . $valores['client']. "</b></p>
-                    <p>Telefone: <b>" . $valores['phone']. "</b></p>
-                    <p>Endereço: <b>" . $valores['address']. "</b></p>
+                    <p>Nome: <b>" . $columnsValue['client']. "</b></p>
+                    <p>Telefone: <b>" . $columnsValue['phone']. "</b></p>
+                    <p>Endereço: <b>" . $columnsValue['address']. "</b></p>
                     
                 ";
         
@@ -33,12 +33,12 @@
         <?php
             echo "
 
-                <p>Pedido: <b>" . $valores['order']. "</b></p>
-                <p>Prazo de Entrega: <b>" . (new DateTime($valores['time']))->format('d/m/Y H:i'). "</b></p>
-                <p>Valor: <b>R$ " . number_format($valores['price'], '2', '.', ',') . "</b></p>
-                <p>Recebimento: <b>" . $valores['receipt']. "</b></p>
-                <p>Situação do Pedido: <b>" . $valores['status']. "</b></p>
-                <p>Forma de Pagamento: <b>" . $valores['payment']. "</b></p>
+                <p>Pedido: <b>" . $columnsValue['order']. "</b></p>
+                <p>Prazo de Entrega: <b>" . (new DateTime($columnsValue['time']))->format('d/m/Y H:i'). "</b></p>
+                <p>Valor: <b>R$ " . number_format($columnsValue['price'], '2', '.', ',') . "</b></p>
+                <p>Recebimento: <b>" . $columnsValue['receipt']. "</b></p>
+                <p>Situação do Pedido: <b>" . $columnsValue['status']. "</b></p>
+                <p>Forma de Pagamento: <b>" . $columnsValue['payment']. "</b></p>
                 
 
             ";

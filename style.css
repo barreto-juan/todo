@@ -1,4 +1,13 @@
-.sidenav {
+  .bg-login{
+    background-image: linear-gradient(90deg, lightblue, 50%, #9a27ab);
+  }
+
+  .blur, .login-inputs{
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+  }
+
+  .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
