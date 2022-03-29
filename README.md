@@ -44,7 +44,20 @@ Inicie seu servidor e acesse-o pelo link
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Área de login](https://github.com/barreto-juan/assets/blob/main/todo/login_area.PNG)
+
+![Cadastrar pedido](https://github.com/barreto-juan/assets/blob/main/todo/create_order.PNG)
+![Sucesso ao cadastrar pedido](https://github.com/barreto-juan/assets/blob/main/todo/success_create_order.PNG)
+
+![Editar pedido](https://github.com/barreto-juan/assets/blob/main/todo/edit_order.PNG)
+![Sucesso ao editar pedido](https://github.com/barreto-juan/assets/blob/main/todo/success_edit_order.PNG)
+
+![Visualizar pedido](https://github.com/barreto-juan/assets/blob/main/todo/read_specified_order.PNG)
+
+![Sucesso ao excluir pedido](https://github.com/barreto-juan/assets/blob/main/todo/success_delete_order.PNG)
+![Falha ao excluir pedido](https://github.com/barreto-juan/assets/blob/main/todo/fail_delete_order.PNG)
+
+![Visualização geral dos pedidos](https://github.com/barreto-juan/assets/blob/main/todo/read_general_orders.PNG)
 
 
 ## Stack utilizada
