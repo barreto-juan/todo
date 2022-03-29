@@ -37,7 +37,7 @@ Inicie seu servidor e acesse-o pelo link
 - [x]  Consulta pedido
 - [x]  Atualiza pedido
 - [x]  Deleta pedido
-- [x]  Apresenta uma tabela de todos pedido
+- [x]  Apresenta uma tabela de todos os pedidos
 - [x]  *Login/Logout* com **SESSION**
 - [x]  Multiplataforma
 
