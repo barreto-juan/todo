@@ -74,6 +74,10 @@ Inicie seu servidor e acesse-o pelo link
 | ----------------- | ---------------------------------------------------------------- |
 | Lightblue       | ![#add8e6](https://via.placeholder.com/10/add8e6?text=+) #add8e6 |
 | Purple       | ![#9a27ab](https://via.placeholder.com/10/9a27ab?text=+) #9a27ab |
+| Darkgrey | ![#343a40](https://via.placeholder.com/10/343a40?text=+) #343a40 |
+| Red | ![#dc3545](https://via.placeholder.com/10/dc3545?text=+) #dc3545 |
+| Green | ![#28a745](https://via.placeholder.com/10/28a745?text=+) #28a745 |
+| Blue | ![#007bff](https://via.placeholder.com/10/007bff?text=+) #007bff |
 
 
 ## Melhorias
