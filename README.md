@@ -72,17 +72,14 @@ Inicie seu servidor e acesse-o pelo link
 
 | Cor               | Hexadecimal                                                |
 | ----------------- | ---------------------------------------------------------------- |
-| Cor exemplo       | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
-| Cor exemplo       | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
-| Cor exemplo       | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
-| Cor exemplo       | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+| Lightblue       | ![#add8e6](https://via.placeholder.com/10/add8e6?text=+) #add8e6 |
+| Purple       | ![#9a27ab](https://via.placeholder.com/10/9a27ab?text=+) #9a27ab |
 
 
 ## Melhorias
 
 Dentre as melhorias, estão:
-- [x]  Adicionar o sistema de *login* e *logout*
-- [x]  Acompanhamento do pedido em *realtime*
-- [x]  *Feeback* do cliente ao receber pedido, atualmente planejamos implementar este com a ajudar da API do WhatsApp
+- [x]  Acompanhamento do pedido em *step-by-step*
+- [x]  *Feeback* do cliente ao receber pedido, atualmente planejamos implementar este com a API do WhatsApp
 ## Licença
 ![LICENSE](https://img.shields.io/github/license/barreto-juan/todo?style=for-the-badge&color=green)
