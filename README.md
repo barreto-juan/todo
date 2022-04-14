@@ -63,7 +63,7 @@ Inicie seu servidor e acesse-o pelo link
 ## Stack utilizada
 
 - **Front-end**
-    - Bootstrap e JS Básico
+    - Bootstrap e JavaScript Básico
 
 - **Back-end**
     - PHP e MySql
@@ -83,6 +83,7 @@ Inicie seu servidor e acesse-o pelo link
 ## Melhorias
 
 Dentre as melhorias, estão:
+- [x]  ~~Implementar sistema de *login/logout*~~
 - [x]  Acompanhamento do pedido em *step-by-step*
 - [x]  *Feeback* do cliente ao receber pedido, atualmente planejamos implementar este com a API do WhatsApp
 ## Licença
